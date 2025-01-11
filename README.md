@@ -15,7 +15,7 @@
         [**1**](pattern/01_facade.go) **|** Паттерн [«Фасад»](https://en.wikipedia.org/wiki/Facade_pattern)\
         [**2**](pattern/02_builder.go) **|** Паттерн [«Строитель»](https://en.wikipedia.org/wiki/Builder_pattern)\
         [**3**](pattern/03_visitor.go) **|** Паттерн [«Посетитель»](https://en.wikipedia.org/wiki/Visitor_pattern)\
-        [**4**](pattern/04_command.go) **|** Паттерн [«Комманда»](https://en.wikipedia.org/wiki/Command_pattern)\
+        [**4**](pattern/04_command.go) **|** Паттерн [«Команда»](https://en.wikipedia.org/wiki/Command_pattern)\
         [**5**](pattern/05_chain_of_resp.go) **|** Паттерн [«Цепочка вызовов»](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern)\
         [**6**](pattern/06_factory_method.go) **|** Паттерн [«Фабричный метод»](https://en.wikipedia.org/wiki/Factory_method_pattern)\
         [**7**](pattern/07_strategy.go) **|** Паттерн [«Стратегия»](https://en.wikipedia.org/wiki/Strategy_pattern)\
