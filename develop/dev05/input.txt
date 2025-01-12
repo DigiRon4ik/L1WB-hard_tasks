@@ -1,0 +1,5 @@
+Go is great.
+Python is good.
+I love programming.
+Go is fast.
+Go is simple.
