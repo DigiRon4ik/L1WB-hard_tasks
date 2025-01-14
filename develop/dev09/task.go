@@ -97,9 +97,9 @@ func ExtractLinks(baseURL string, body io.Reader) ([]string, error) {
 					if attr.Key == "href" {
 						link := attr.Val
 						// Ignore anchor links.
-						// if strings.HasPrefix(link, "#") {
-						// 	break
-						// }
+						if strings.HasPrefix(link, "#") {
+							break
+						}
 						// Resolve relative URLs to absolute.
 						absLink, err := resolveURL(baseURL, link)
 						if err == nil {

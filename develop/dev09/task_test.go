@@ -70,7 +70,7 @@ func TestResolveURL(t *testing.T) {
 		expected string
 	}{
 		{"/path", "http://example.com/path"},
-		{"/#anchor", "http://example.com/#anchor"},
+		{"#anchor", "http://example.com#anchor"},
 		{"../relative", "http://example.com/relative"},
 	}
 
