@@ -1,5 +1,11 @@
 package main
 
+import (
+	"log"
+
+	"dev11/internal/api"
+)
+
 /*
 === HTTP server ===
 
@@ -12,7 +18,7 @@ package main
 Методы API: POST /create_event POST /update_event POST /delete_event GET /events_for_day GET /events_for_week GET /events_for_month
 Параметры передаются в виде www-url-form-encoded (т.е. обычные user_id=3&date=2019-09-09).
 В GET методах параметры передаются через queryString, в POST через тело запроса.
-В результате каждого запроса должен возвращаться JSON документ содержащий либо {"result": "..."} в случае успешного выполнения метода,
+В результате каждого запроса должен возвращаться JSON документ содержащий либо {"res": "..."} в случае успешного выполнения метода,
 либо {"error": "..."} в случае ошибки бизнес-логики.
 
 В рамках задачи необходимо:
@@ -23,5 +29,23 @@ package main
 */
 
 func main() {
-
+	config := api.NewConfig("./configs/server.yaml")
+	server := api.NewServer(config)
+	if err := server.Start(); err != nil {
+		log.Fatal(err)
+	}
 }
+
+/*
+ - Usage: -
+[curl]
+curl -X POST http://localhost:8080/create_event -H "Content-Type: application/x-www-form-urlencoded" -d "id=1&title=My+Event&date=2025-01-16+15:30"
+curl -X GET http://localhost:8080/events_for_day
+curl -X GET http://localhost:8080/events_for_week
+curl -X POST http://localhost:8080/create_event -H "Content-Type: application/x-www-form-urlencoded" -d "id=2&title=Your+Event&date=2025-01-17+12:00"
+curl -X GET http://localhost:8080/events_for_month
+curl -X POST http://localhost:8080/update_event -H "Content-Type: application/x-www-form-urlencoded" -d "id=1&title=Update+Event&date=2025-01-17+17:00"
+curl -X GET http://localhost:8080/events_for_month
+curl -X POST http://localhost:8080/delete_event -H "Content-Type: application/x-www-form-urlencoded" -d "id=1&title=Update+Event&date=2025-01-17+17:00"
+curl -X GET http://localhost:8080/events_for_month
+*/
